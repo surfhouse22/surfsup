@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu Surf Mobile</title>
+  <link rel="stylesheet" href="styles.css">
+  <title>Eventos de Surf</title>
+  <style>
+    body {
+     color: #1c1010;
+     min-height: 100vh;
+     font-family: Arial, sans-serif;
+     margin: 0;
+    }
+    
+    .container {
+      background-image: url(fotossurf/bluewaves.jpeg);
+     background-size: cover;display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .news-section {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #e3f2fd;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .calendar-section {
+      padding: 20px;
+      background: #fff;
+      flex-grow: 1;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .calendar-header button {
+      background: #5fb8d9;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+
+    .day {
+      background: #e3f2fd;
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    .day.today {
+      background: #90caf9;
+      font-weight: bold;
+    }
+    @media (max-width: 768px) {
+  .news-section {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .calendar-section {
+    padding: 10px;
+  }
+
+  .calendar-header {
+    gap: 10px;
+    text-align: center;
+  }
+
+  .calendar {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  .menu-toggle {
+    display: block;
+    color: white;
+ }
+  }
+
+  </style>
+</head>
+<body>
+<header>
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+    <nav class="menu" id="menu">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conduta.html">Regras de Conduta</a></li>
+            <li><a href="inspiraçao.html">Inspiração</a></li>
+            <li><a href="eventos.html">Eventos e Calendário</a></li>
+        </ul>
+    </nav>
+</header>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+</script>
+
+  <div class="container">
+    <!-- Notícias -->
+    <section class="news-section">
+      <div class="card">
+        <h3>Gabriel Medina vence etapa em Teahupo'o</h3>
+        <p>O surfista brasileiro brilhou nas ondas pesadas do Taiti com performances impressionantes.</p>
+      </div>
+      <div class="card">
+        <h3>WSL anuncia calendário 2025</h3>
+        <p>Com novas etapas e retorno a Fiji, o circuito promete fortes emoções no próximo ano.</p>
+      </div>
+      <div class="card">
+        <h3>Entrevista com Carissa Moore</h3>
+        <p>A campeã mundial fala sobre sua preparação para os Jogos Olímpicos e a evolução do surf feminino.</p>
+      </div>
+      <div class="card">
+        <h3>Tempestade cancela etapa em Portugal</h3>
+        <p>Organização da WSL suspende a competição por segurança devido às condições extremas.</p>
+      </div>
+    </section>
+
+    <!-- Calendário -->
+    <section class="calendar-section">
+      <div class="calendar-header">
+        <button onclick="changeMonth(-1)">← Mês anterior</button>
+        <h2 id="monthYear"></h2>
+        <button onclick="changeMonth(1)">Próximo mês →</button>
+      </div>
+      <div class="calendar" id="calendar"></div>
+    </section>
+  </div>
+
+  <script>
+    const calendarEl = document.getElementById("calendar");
+    const monthYearEl = document.getElementById("monthYear");
+    let currentDate = new Date();
+
+    function renderCalendar(date) {
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      calendarEl.innerHTML = '';
+      monthYearEl.textContent = `${date.toLocaleString('pt-BR', { month: 'long' })} ${year}`;
+
+      const weekDays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+      weekDays.forEach(day => {
+        const div = document.createElement("div");
+        div.textContent = day;
+        div.style.fontWeight = "bold";
+        calendarEl.appendChild(div);
+      });
+
+      for (let i = 0; i < firstDay; i++) {
+        calendarEl.appendChild(document.createElement("div"));
+      }
+
+      for (let i = 1; i <= daysInMonth; i++) {
+        const dayDiv = document.createElement("div");
+        dayDiv.className = "day";
+        if (
+          i === new Date().getDate() &&
+          month === new Date().getMonth() &&
+          year === new Date().getFullYear()
+        ) {
+          dayDiv.classList.add("today");
+        }
+        dayDiv.textContent = i;
+        calendarEl.appendChild(dayDiv);
+      }
+    }
+
+    function changeMonth(offset) {
+      currentDate.setMonth(currentDate.getMonth() + offset);
+      renderCalendar(currentDate);
+    }
+
+    renderCalendar(currentDate);
+  </script>
+
+</body>
+</html>

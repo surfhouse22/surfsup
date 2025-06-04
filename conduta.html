@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conduta Dentro de Água</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background-color: #90caf9;
+    padding: 0.5rem;
+  }
+
+  nav button {
+    background-color: #90caf9;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  nav button:hover {
+    background-color: #5e9ce8;
+  }
+
+  .content {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+  }
+
+  .rules-box {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 80%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .rules-box h2 {
+    margin-bottom: 1rem;
+  }
+
+  .rules-box h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .rules-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .rules-box li {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .prancha {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 90%;
+    opacity: 0.8;
+    z-index: 0;
+  }
+
+  /* Responsividade para telemóvel */
+  @media (max-width: 768px) {
+    .content {
+      padding: 1rem;
+      flex-direction: column;
+    }
+
+    .rules-box {
+      max-width: 95%;
+      padding: 1rem;
+    }
+
+    .rules-box h2 {
+      font-size: 1.4rem;
+    }
+
+    .rules-box h3 {
+      font-size: 1.1rem;
+    }
+
+    .rules-box li {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <header>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <nav class="menu" id="menu">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="conduta.html">Regras de Conduta</a></li>
+        <li><a href="inspiraçao.html">Inspiração</a></li>
+        <li><a href="eventos.html">Eventos e Calendário</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('menu').classList.toggle('active');
+    });
+  </script>
+
+  <nav>
+    <button onclick="mostrarSecao('fora')">Conduta Fora de Água</button>
+    <button onclick="mostrarSecao('dentro')">Conduta Dentro de Água</button>
+  </nav>
+
+  <div id="fora" class="content" style="background-image: url('fotossurf/areiaprancha.png'); display: flex;">
+    <div class="rules-box">
+      <h2>Conduta Fora de Água</h2>
+      <h3>Faz um aquecimento antes de entrar na água.</h3>
+      <ul>
+        <li>Activa o teu sistema cardiorespiratório e grupos musculares. Podes fazer uma pequena corrida ou alguns takeoffs.</li>
+      </ul>
+      <h3>Não entres sozinho no mar.</h3>
+      <ul> 
+        <li>Se te sentires mal ou acontecer alguma coisa, não tens ninguém contigo para te ajudar ou chamar por ajuda.</li>
+      </ul>
+      <h3>Não deixes lixo na praia.</h3>
+      <h3>Aprende sobre as condições meteorológicas.</h3>
+    </div>
+  </div>
+
+  <div id="dentro" class="content" style="background-image: url('fotossurf/marprancha.png'); display: none;">
+    <div class="rules-box">
+      <h2>Conduta Dentro de Água</h2>
+      <h3>Nunca ponhas a prancha entre ti e as ondas.</h3>
+      <h3>Nunca vires as costas ao mar.</h3>
+      <ul>
+        <li>O “perigo” vem sempre do mar, quer seja uma onda maior, alguém a surfar ou uma prancha solta. Está com atenção dentro de água.</li>
+      </ul>
+      <h3>Respeita as prioridades.</h3>
+      <ul>  
+        <li>Uma das regras mais importantes é não “dropinar” outros surfistas, ou seja, não entrar numa onda sem prioridade.</li>
+        <li>Evita colisões: mantém distância.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function mostrarSecao(secao) {
+      document.getElementById('fora').style.display = secao === 'fora' ? 'flex' : 'none';
+      document.getElementById('dentro').style.display = secao === 'dentro' ? 'flex' : 'none';
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>7ª Essência</title>
+  <style>
+    body {
+      background-color: #fdf8f2;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      color: #c9302c;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .location-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .box {
+      background-color: white;
+      border: 2px solid #c9302c;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .images-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .images-grid img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    @media (min-width: 600px) {
+      .location-contact {
+        flex-direction: row;
+      }
+
+      .location-contact .box {
+        flex: 1;
+      }
+
+      .images-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>7ª Essência</h1>
+
+  <div class="location-contact">
+    <div class="box">
+      <h2>Localização</h2>
+      <a href="https://www.google.com/maps/place/7%C2%AA+Ess%C3%AAncia+Escola+de+Surf+%26+Bodyboard+(office)/@38.7116909,-9.2477652,17z/data=!3m1!4b1!4m6!3m5!1s0xd1ecc70e40ec0b3:0xb922a361fec83115!8m2!3d38.7116909!4d-9.2477652!16s%2Fg%2F1q5bp7vnt?hl=pt-PT&entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+  <img src="fotossurf/pinessencia.png" alt="Pin localização" style="width:100%; max-width: 200px;">
+</a>
+    </div>
+    <div class="box">
+      <h2>Contactos & Horários</h2>
+      <p><strong>Telefone:</strong> 915 080 555</p>
+      <p><strong>Email:</strong> info@7essencia.pt</p>
+      <p><strong>Horário:</strong> Dias úteis das 8.30 às 22.00.
+Fins de semana das 8.00 às 14.00</p>
+    </div>
+  </div>
+
+  <div class="box">
+    <h2>Fotos da Escola</h2>
+    <div class="images-grid">
+      <img src="fotossurf/7ªEssenciafoto2.jpg" alt="Foto 1 da escola">
+      <img src="fotossurf/7ªesseciafoto3.png" alt="Foto 2 da escola">
+    </div>
+  </div>
+
+  <div class="box" style="margin-top: 1.5rem;">
+    <h2>Praias Próximas</h2>
+    <div class="images-grid">
+      <img src="fotossurf/praias1.jpg" alt="Praia 1">
+      <img src="fotossurf/praias2.jpeg" alt="Praia 2">
+    </div>
+  </div>
+
+</body>
+</html>
+

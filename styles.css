@@ -1,0 +1,114 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fundo de surfista em ação */
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url(https://cdn.pixabay.com/photo/2017/04/08/10/23/surfing-2212948_1280.jpg) no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    position: relative;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Botão */
+.menu-toggle {
+    font-size: 2.5rem;
+    cursor: pointer;
+    user-select: none;
+    display: block;
+}
+
+/* Menu principal */
+.menu {
+    display: none;
+    background: rgba(0, 0, 0, 0.75);
+    margin-top: 10px;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu ul li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.4s, color 0.4s;
+}
+
+.menu ul li a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #00ffff;
+}
+
+/* Mostrar menu quando ativo */
+.menu.active {
+    display: block;
+}
+
+/* Responsividade para desktop */
+@media (min-width: 768px) {
+    .menu {
+        display: block !important;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .menu ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu ul li {
+        border: none;
+    }
+
+    .menu ul li a {
+        padding: 10px 25px;
+    }
+}
+.CaixaPrincipal{
+    background-color: rgba(193, 34, 60, 0.991);
+    border: 2px solid rgb(176, 45, 47);
+    border-radius: 7px;
+    color:rgb(249, 246, 246);
+    padding: 6px;
+    margin: 20px;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.Caixa {
+    background-color: rgba(193, 34, 60, 0.991);
+    border: 2px solid rgb(176, 45, 47);
+    color:rgb(245, 239, 239);
+    padding: 6px;
+    margin: 20px;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}

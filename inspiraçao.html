@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+  <title>Grid</title>
+  <style>
+    header {
+        margin-bottom: 20px;
+    }
+    body {
+      font-family: sans-serif;
+      margin: 0;
+    
+    }
+
+    .grid {
+      column-count: 4;
+      column-gap: 1em;
+    }
+
+    @media (max-width: 1200px) {
+      .grid {
+        column-count: 3;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .grid {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .grid {
+        column-count: 2;
+      }
+    }
+
+    .grid-item {
+      background: rgb(255, 255, 255);
+      margin: 0 0 1em;
+      display: inline-block;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .grid-item img {
+      width: 100%;
+      display: block;
+    }
+
+    .caption {
+      padding: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<header>
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+    <nav class="menu" id="menu">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conduta.html">Regras de Conduta</a></li>
+            <li><a href="inspiraçao.html">Inspiração</a></li>
+            <li><a href="eventos.html">Eventos e Calendário</a></li>
+        </ul>
+    </nav>
+</header>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+</script>
+   <div class="grid" id="gallery">
+    <!-- Imagens serão adicionadas aqui -->
+  </div>
+
+  <script>
+    const images = [
+      { src:'fotossurf/surf8.jpg', caption:'Img 1' },
+      { src: 'fotossurf/surf3.jpg' , caption: 'Imagem 2' },
+      { src: 'fotossurf/surf4.jpg', caption: 'Imagem 3' },
+      { src: 'fotossurf/surf2.jpg', caption: 'Imagem 4' },
+      { src: 'fotossurf/surf5.jpg', caption: 'Imagem 5' },
+      { src: 'fotossurf/surf6.jpg', caption: 'Imagem 6' },
+      { src: 'fotossurf/surf7.jpg', caption: 'Imagem 7' },
+      { src: 'fotossurf/surf1.jpg', caption: 'Imagem 8' },
+      { src: 'fotossurf/IMG_11.jpeg'},
+      { src: 'fotossurf/IMG_12.jpeg'},
+      { src: 'fotossurf/IMG_13.jpeg'},
+      { src: 'fotossurf/IMG_1.jpeg'},
+      { src: 'fotossurf/IMG_02.jpeg'},
+      { src: 'fotossurf/IMG_3.jpeg'},
+      { src: 'fotossurf/IMG_4.jpeg'},
+      { src: 'fotossurf/IMG_5.jpeg'},
+      { src: 'fotossurf/IMG_6.jpeg'},
+      { src: 'fotossurf/IMG_7.jpeg'},
+
+
+    ];
+
+    const gallery = document.getElementById('gallery');
+    images.forEach(img => {
+      const item = document.createElement('div');
+      item.className = 'grid-item';
+      item.innerHTML = `
+        <img src="${img.src}" alt="${img.caption}">
+        <div class="caption">${img.caption}</div>
+      `;
+      gallery.appendChild(item);
+    });
+  </script>
+
+</body>
+</html>

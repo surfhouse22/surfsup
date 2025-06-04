@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolas de Surf em Oeiras</title>
+    <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #fdf8f2;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      color: #c9302c;
+    }
+    header {
+      margin-bottom: 6px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .school-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .school-box {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border: 2px solid #c9302c;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .school-box img {
+      width: 100%;
+      height: auto;
+    }
+
+    .school-box a {
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem;
+  background-color: #c9302c;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+    .school-box a:hover {
+      background-color: #a82220;
+    }
+
+    @media (min-width: 600px) {
+  .school-container {
+    flex-direction: row;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .school-box {
+    flex: 1;
+    max-width: 500px;
+  }
+}
+    @media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+
+  .school-container {
+    padding: 1rem;
+  }
+
+  .school-box {
+    width: 100%;
+  }
+
+  nav.menu a:hover {
+    background-color: #a82220;
+  }
+}
+
+  </style>
+</head>
+<body>
+<header>
+    <div class="menu-toggle" id="menu-toggle">
+        ☰ Escolas de Surf em Oeiras 
+    </div>
+    <nav class="menu" id="menu">
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="conduta.html">Regras de Conduta</a></li>
+            <li><a href="inspiraçao.html">Inspiração</a></li>
+            <li><a href="eventos.html">Eventos e Calendário</a></li>
+        </ul>
+    </nav>
+</header>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+</script>
+  <div class="school-container">
+    <div class="school-box">
+      <img src="fotossurf/7ªEssenciafoto.jpg" alt="Escola 7ª Essência">
+      <a href="essencia.html">7ª Essência Escola de Surf</a>
+    </div>
+    <div class="school-box">
+      <img src="fotossurf/surflisbonfoto.jpg" alt="Surf and House Lisbon School">
+      <a href="surfhouse.html">Surf Lisbon - House & School</a>
+    </div>
+  </div>
+
+</body>
+</html>
